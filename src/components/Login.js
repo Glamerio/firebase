@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { database, auth } from '../firebase'; // Doğru dosya yolu
+import { database, auth } from '../firebase';
 
 const Chat = () => {
     const [messages, setMessages] = useState([]);
