@@ -1,8 +1,7 @@
 import React from 'react';
 import Chat from './components/Chat';
 import Login from './components/Login';
-import { auth } from './firebase'; // Doğru dosya yolu
-
+import { auth } from './firebase';
 const App = () => {
     const [user, setUser] = React.useState(null);
 
