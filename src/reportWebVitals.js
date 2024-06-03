@@ -1,4 +1,4 @@
-import reportWebVitals from './reportWebVitals'; // Doğru dosya yolu
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -7,4 +7,4 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
-reportWebVitals(); // reportWebVitals'ı burada çağırın
+reportWebVitals();
