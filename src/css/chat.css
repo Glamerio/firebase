@@ -1,50 +1,201 @@
-/* chat.css */
-#chatBackground{
-    height: 100vh;
-    padding: 3% 0;
-    box-sizing: border-box;
-    width: 100%;
-    background-color: var(--bg);
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
 }
-#chat_container{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: 50%;
+::-webkit-scrollbar-button {
+  width: 4px;
+  height: 4px;
 }
-#chat_box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5rem;
+::-webkit-scrollbar-thumb {
+  background: #be5bd2;
+  border: 0px none #ffffff;
+  border-radius: 50px;
 }
-#send_box{
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+::-webkit-scrollbar-thumb:hover {
+  background: #945aa0;
 }
-#send_box input{
-    border-color:violet !important;
-    font-size: larger;
+::-webkit-scrollbar-thumb:active {
+  background: #9e12ba;
 }
-.send_button{
-    width: 42px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius:100% ;
-    border:1px solid violet;
-    color: violet;
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 17px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #9a4747;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+#chat {
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: var(--bg);
+}
+#article{
+  width: 260px;
+}
+.chat_channels {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background: #333;
+  color: #fff; /* Beyaz metin */
+  padding: 1rem 1rem;
 }
 
-.send_button:hover{
-    border-top-left-radius: 8px!important;
+.chat_channels_box {
+  width: 100%;
+  box-sizing: content-box;
+  height:88vh;
+  overflow-y: auto;
 }
 
-.username{
-    color: violet;
+#chatBackground {
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+#chat_container {
+  display: flex;
+  flex-direction: column;
+  height: 98vh;
+}
+
+#chat_box {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  margin-bottom: 10px;
+  height: 480px;
+  padding: 0 1rem 0 0;
+}
+#chat_box::-webkit-scrollbar {
+  display: none;
+}
+
+#send_box {
+  display: flex;
+  padding: 10px;
+  background: #333; /* Siyah renk */
+  border-radius: 12px;
+
+}
+#send_box input {
+  font-size: medium;
+}
+#send_box input::placeholder {
+  font-size: medium;
+}
+
+.messageBox {
+  padding: 5px;
+  margin: 5px 0;
+  color: #fff; /* Beyaz metin */
+  border-radius: 5px;
+}
+.messageBox:hover {
+  background-color: #5555553b;
+}
+
+.username {
+  font-weight: bold;
+  color: violet;
+}
+
+.chat_channels ul {
+  list-style: none;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.chat_channels li {
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: center;
+  width: 100%;
+}
+
+.chat_channels li .channel_name{
+  width: fit-content;
+  max-width: 185px;
+  overflow-x: hidden;
+
+}
+
+.chat_channels li:hover {
+  background: #555; /* Koyu gri */
+}
+
+.chat_channels button {
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.15s all ease;
+  width: 32px;
+  height: 32px;
+}
+.chat_channels .delete_button:hover {
+  transform: rotate(8deg) translateX(2px) translateY(-2px);
+  color: rgb(255, 74, 74);
+}
+
+.new_channel_container {
+  display: flex;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 0;
+  padding: 1rem 0;
+  background-color: #333;
+}
+
+input.new_channel_name {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#send_box button.send_button {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none'%3E%3Cpath d='M24 0v24H0V0zM12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.105.074l.014.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.016-.018m.264-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.092l.01-.009l.004-.011l.017-.43l-.003-.012l-.01-.01z'/%3E%3Cpath fill='%23000' d='M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m0 2a8 8 0 1 0 0 16a8 8 0 0 0 0-16m.005 3.758a1 1 0 0 1 1.32-.084l.094.084l3.535 3.535a1 1 0 0 1 .083 1.32l-.083.094l-3.535 3.536a1 1 0 0 1-1.498-1.32l.084-.094l1.828-1.83H7.757a1 1 0 0 1-.116-1.992L7.757 11h6.076l-1.828-1.828a1 1 0 0 1 0-1.414'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+#send_box button.send_button:hover {
+  color: rgb(83, 190, 83);
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M24 0v24H0V0zM12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.105.074l.014.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.016-.018m.264-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.092l.01-.009l.004-.011l.017-.43l-.003-.012l-.01-.01z'/%3E%3Cpath fill='%23000' d='M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10m.005-14.242a1 1 0 0 0 0 1.414L13.833 11H7.757a1 1 0 0 0 0 2h6.076l-1.828 1.829a1 1 0 0 0 1.414 1.414l3.535-3.536a1 1 0 0 0 0-1.414L13.42 7.758a1 1 0 0 0-1.414 0Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }

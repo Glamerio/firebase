@@ -24,12 +24,13 @@ function Register() {
       await set(ref(db, "users/" + user.uid), {
         username: username,
         email: email,
+        createdAt: new Date().toISOString() // Kullanıcı oluşturulma tarihini ekleyin
       });
 
       console.log("Kullanıcı başarıyla kaydedildi.");
       history.push("/");
     } catch (error) {
-      console.log(setError(error.message));
+      setError(error.message);
     }
   };
 
@@ -69,14 +70,12 @@ function Register() {
           </div>
         </div>
 
-
         <button className="button log_button" onClick={handleRegister}>
           Kayıt Ol
         </button>
         <a href="/">Go Login Page</a>
         {error && <p>{error}</p>}
       </div>
-
     </div>
   );
 }

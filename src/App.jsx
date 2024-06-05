@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Chat from './components/Chat';
 import Login from './components/Login';
 import Register from './components/Register';
 import { auth } from './firebase';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const App = () => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = React.useState(null);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             setUser(user);
         });
@@ -21,7 +21,9 @@ const App = () => {
                 <Route exact path="/">
                     {user ? <Chat /> : <Login setUser={setUser} />}
                 </Route>
-                <Route path="/register" component={Register} />
+                <Route path="/register">
+                    <Register />
+                </Route>
             </Switch>
         </Router>
     );
